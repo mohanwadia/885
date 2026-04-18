@@ -43,12 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const randomSubject = subjects[Math.floor(Math.random() * subjects.length)]
     const randomBody = bodies[Math.floor(Math.random() * bodies.length)];
     const recipients = ["gabrielle.williams@parliament.vic.gov.au", "eden.foster@parliament.vic.gov.au"];
-    const params = new URLSearchParams({
-        subject: randomSubject,
-        body: randomBody,
-        cc: "mail@unlockthe885.com"
-    });
-    const finalMailto = `mailto:${recipients.join(',')}?${params.toString()}`;
+    const encodedSubject = encodeURIComponent(randomSubject);
+    const encodedBody = encodeURIComponent(randomBody.replace(/\r?\n/g, '\r\n'));
+    const encodedCc = encodeURIComponent("mail@unlockthe885.com");
+    const finalMailto = `mailto:${recipients.join(',')}?subject=${encodedSubject}&body=${encodedBody}&cc=${encodedCc}`;
     const linkElement = document.getElementById('email-link');
     if (linkElement) {
         linkElement.href = finalMailto;
