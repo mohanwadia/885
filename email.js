@@ -140,13 +140,22 @@ document.addEventListener("DOMContentLoaded", function () {
         cta = eden_cta[Math.floor(Math.random() * eden_cta.length)]
 
     }
-    const randomBody = greeting + '\n' + randomIssue + '\n' + cta + '\n' + randomThanks
+    const randomBody = greeting + '\n\n' + randomIssue + '\n\n' + cta + '\n\n' + randomThanks
     const encodedSubject = encodeURIComponent(randomSubject);
     const encodedBody = encodeURIComponent(randomBody.replace(/\r?\n/g, '\r\n'));
     const encodedCc = encodeURIComponent("mail@unlockthe885.com");
     const finalMailto = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}&cc=${encodedCc}`;
+    
     const linkElement = document.getElementById('email-link');
     if (linkElement) {
         linkElement.href = finalMailto;
+    } 
+    const linkElement2 = document.getElementById('email-link-2');
+    if (linkElement2) {
+        linkElement2.href = finalMailto;
+    }
+        const linkElement3 = document.getElementById('email-link-3');
+    if (linkElement3) {
+        linkElement3.href = finalMailto;
     }
 });
