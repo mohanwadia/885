@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
+        <h2>Opening your email...</h2>
+        <p>If your email doesn't open automatically, <a href="#" id="email-link">click here</a>.</p>
+        <p>If still not working, email Gabrielle (Minister for Transport) or Eden (Member for Mulgrave):</p>
+        <p style="font-family: monospace; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+            gabrielle.williams@parliament.vic.gov.au<br>
+            eden.foster@parliament.vic.gov.au
+        </p>
+        <p>Returning you to the home page in 5 seconds...</p>
+    </div>
+
+    <script src="email.js"></script>
+    <script>
+        // Wait for email.js to populate the mailto link, then open it
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                const emailLink = document.getElementById('email-link');
+                if (emailLink && emailLink.href) {
+                    window.location.href = emailLink.href;
+                }
+
+                // Redirect to home page after 5 seconds
+                setTimeout(function () {
+                    window.location.href = "./";
+                }, 5000);
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

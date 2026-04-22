@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         'To Ms Foster',
         'Hello Eden,',
         'Dear Eden,',
-        'To the Minister',
-        'Dear Minister'
+        'To the Member for Mulgrave,',
+        'Hello,'
     ]
 
     const gabrielle_greeting = [
@@ -129,7 +129,6 @@ The 885 timetable hasn’t changed for years even though better service is justi
         'Yours sincerely',
         'Best regards',
         'Many thanks',
-        'Sincerely',
         'Thank you',
         'I look forward to hearing from you',
         'I look forward to hearing back',
@@ -156,8 +155,8 @@ The 885 timetable hasn’t changed for years even though better service is justi
     const randomBody = greeting + '\n\n' + randomIssue + '\n\n' + cta + '\n\n' + randomThanks
     const encodedSubject = encodeURIComponent(randomSubject);
     const encodedBody = encodeURIComponent(randomBody.replace(/\r?\n/g, '\r\n'));
-    const encodedCc = encodeURIComponent("mail@unlockthe885.com");
-    const finalMailto = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}&cc=${encodedCc}`;
+    const encodedCc = encodeURIComponent(recipient);
+    const finalMailto = `mailto:${"mail@unlockthe885.com"}?subject=${encodedSubject}&body=${encodedBody}&cc=${encodedCc}`;
     
     const linkElement = document.getElementById('email-link');
     if (linkElement) {
@@ -170,5 +169,9 @@ The 885 timetable hasn’t changed for years even though better service is justi
         const linkElement3 = document.getElementById('email-link-3');
     if (linkElement3) {
         linkElement3.href = finalMailto;
+    }
+    const linkElement4 = document.getElementById('email-link-4');
+    if (linkElement4) {
+        linkElement4.href = finalMailto;
     }
 });
