@@ -155,8 +155,8 @@ The 885 timetable hasn’t changed for years even though better service is justi
     const randomBody = greeting + '\n\n' + randomIssue + '\n\n' + cta + '\n\n' + randomThanks
     const encodedSubject = encodeURIComponent(randomSubject);
     const encodedBody = encodeURIComponent(randomBody.replace(/\r?\n/g, '\r\n'));
-    const encodedBcc = encodeURIComponent(recipient);
-    const finalMailto = `mailto:${"mail@unlockthe885.com"}?subject=${encodedSubject}&body=${encodedBody}&bcc=${encodedBcc}`;
+    const encodedBcc = encodeURIComponent("mail@unlockthe885.com");
+    const finalMailto = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}&bcc=${encodedBcc}`;
     
     const linkElement = document.getElementById('email-link');
     if (linkElement) {
